@@ -1,0 +1,30 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [main]  # Runs when you push to the 'main' branch
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest  # The virtual machine type
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3  # Clones your repo
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3  # Sets up Node.js
+      with:
+        node-version: '18'  # Use a Node version compatible with your app
+
+    - name: Install dependencies
+      run: npm install  # Installs your npm packages
+
+    - name: Build the app
+      run: npm run build  # Runs your build script
+
+    - name: Copy 404.html for routing
+      run: cp dist/index.html dist/404.html  # Optional: for client-side routing
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3  # Deploys to gh-pages branch
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}  # Auto-provided by GitHub
+        publish_dir: ./dist  # Folder to deploy
