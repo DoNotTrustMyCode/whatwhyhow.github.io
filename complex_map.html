@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The what, the why, and the how.</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body);"></script>
+    <script src="/components/header/load.js"></script>
+    <style>
+        /* General styles for the container */
+        .canvas-container {
+            display: flex;
+            /* Use flexbox for layout */
+            /* justify-content: space-between; */
+            /* Optional: Add space between canvases */
+            gap: 10px;
+            /* Space between canvases */
+        }
+
+        /* Style for each canvas */
+        canvas {
+            border: 1px solid #000;
+            /* Optional: Add border for visibility */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-container"></div>
+    <div class="canvas-container">
+        <canvas id="canvas1" width="400" height="400"></canvas>
+        <canvas id="canvas2" width="400" height="400"></canvas>
+    </div>
+    <script src="complex_map.js"></script>
+</body>
+
+</html>
